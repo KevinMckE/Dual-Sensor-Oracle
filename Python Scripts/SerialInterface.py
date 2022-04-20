@@ -13,7 +13,11 @@
 # Do I need to create a DB of JSON information? - If so is this SQL?
 # Batch JSON into some other data storage(can you make lists of JSON?)
 
-import hashlib, json, serial, web3
+import hashlib
+import json
+import serial
+from brownie import Contract, network, web3
+
 
 ser = serial.Serial(port = '/dev/cu.usbmodem1101', baudrate = 9600)#, timeout = 1)
 
@@ -24,6 +28,16 @@ encoded = data.encode()
 result = hashlib.sha256(encoded)
 print(result.hexdigest())
 
+# needs for smart contract functionality
+# need to find a smart contract that will just store the hash onchain
+# need to figure out how to integrate the Infura key into this to allow access to the test net
 
 
+abi = {  } #contract abi as a string
+address = "    " # contract address as a string
+
+network.connect('   ')
+testContract = Contract("TestContractName", address, abi=abi)
+
+print(testContract.myCallableFn(result)) #change to callable function from contract that accepts a hash
 

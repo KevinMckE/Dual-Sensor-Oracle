@@ -32,47 +32,7 @@ print(result.hexdigest())
 #   need to find a smart contract that will just store the hash onchain
 #   need to figure out how to integrate the Infura key into this to allow access to the test net
 
-abi = {[
-	{
-		"inputs": [],
-		"name": "data",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "get",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_data",
-				"type": "string"
-			}
-		],
-		"name": "set",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
-]} 
+abi = json.loads('[{"inputs": [],"name": "data","outputs": [{"internalType": "string","name": "","type": "string"}],"stateMutability": "view","type": "function"},{"inputs": [],"name": "get","outputs": [{"internalType": "string","name": "","type": "string"}],"stateMutability": "view","type": "function"},{"inputs": [{"internalType": "string","name": "_data","type": "string"}],"name": "set","outputs": [],"stateMutability": "nonpayable","type": "function"}]')
 address = "0xef4e99c254a14c324aa1a9edf0cf0f037ab01373" # contract address as a string
 bytecode = {
 	"functionDebugData": {},
@@ -84,7 +44,7 @@ bytecode = {
 }
 
 testVar = hashlib.sha256("asdfghjk")
-testVar.hexdigest()
+
 
 network.connect('kovan')
 oracleTest = Contract("OracleTest", address, abi=abi)

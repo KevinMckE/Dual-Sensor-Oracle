@@ -27,7 +27,7 @@ txData = {
   'nonce' : nonce,
 }
 
-tx = contract.functions.set('hello').buildTransaction(txData)
+tx = contract.functions.set('three').buildTransaction(txData)
 signedTx = web3.eth.account.sign_transaction(tx, privateKey)
 txHash = web3.eth.send_raw_transaction(signedTx.rawTransaction)
 web3.eth.wait_for_transaction_receipt(txHash)

@@ -23,7 +23,7 @@ def SerialRead(data):
 
     encoded = data.encode()
     result = hashlib.sha256(encoded)
-    print(result.hexdigest())
+    print("Original data" + result.hexdigest())
 
     return result.hexdigest()
 
@@ -35,8 +35,7 @@ def BlockchainCall(resultHex):
     privateKey = os.environ.get('TEST_PRIVATE_KEY')
     account = '0x01accf242Ba1828E84B648FF8059a195b9Bfa08e' #test metamask account
 
-    print(web3.isConnected())
-    print(privateKey)
+    #print(web3.isConnected())
 
     abi = json.loads('[{"inputs": [],"name": "data","outputs": [{"internalType": "string","name": "","type": "string"}],"stateMutability": "view","type": "function"},{"inputs": [],"name": "get","outputs": [{"internalType": "string","name": "","type": "string"}],"stateMutability": "view","type": "function"},{"inputs": [{"internalType": "string","name": "_data","type": "string"}],"name": "set","outputs": [],"stateMutability": "nonpayable","type": "function"}]')
     address = Web3.toChecksumAddress('0xef4e99c254a14c324aa1a9edf0cf0f037ab01373')
@@ -60,10 +59,10 @@ def BlockchainCall(resultHex):
 
 if __name__ == '__main__':
 
-    running = true
+    running = True
     dataList = []
 
-    while running == true:
+    while running == True:
 
         print("Would you like to retrieve data from the IoT sensor? Input any value for yes.")
         if input()!='':

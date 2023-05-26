@@ -8,10 +8,7 @@
     # place these variables into SQL database / data structure 
     # JSON format
 # Parse data from Serial Monitor feed, turn strings into ints
-
 # Store data from Serial Monitor feed in JSON format
-# Do I need to create a DB of JSON information? - If so is this SQL?
-# Batch JSON into some other data storage(can you make lists of JSON?)
 
 import hashlib
 import os
